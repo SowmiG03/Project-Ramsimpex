@@ -1,0 +1,68 @@
+
+  
+    .footer-brand{
+      font-family: 'Source Code Pro', monospace; 
+      font-size: 16px;
+      font-weight: bold;
+      color: #6b0ea580 !important;
+      text-shadow: 2px 2px 4px rgba(43, 42, 42, 0.5);
+      letter-spacing: 1px;
+      text-transform:capitalize;
+
+    }
+
+    
+    a.btn-edge {
+      background-color: #6b0ea580 !important;
+      color: white;
+      width: 120px;
+      text-align: center;
+      padding:10px;
+      font-size:20px;
+      border-radius:none;
+      text-decoration: none;
+  }
+  a.btn-edge:hover {
+    background-color: #6b0ea5 !important;
+    color: #fff !important;
+}
+
+  
+    .btn-custom {
+      background-color: #6b0ea580;
+      color: #fff; /* Ensures text is readable */
+      border: none; /* Removes border */
+      font-size: medium;
+      
+  }
+
+  .btn-custom:hover {
+      background-color: #6b0ea5; /* Darker shade for hover effect */
+      color: #fff;
+  }
+
+
+  .tick-list {
+            list-style: none; /* Remove default bullets */
+            padding: 0;
+        }
+
+        .tick-list li {
+            position: relative;
+            padding-left: 15px; /* Add space for the tick symbol */
+        }
+
+        .tick-list li::before {
+            content: "✓"; /* Add tick symbol */
+            color: #6b0ea5; /* Customize color */
+            font-weight: bold; /* Optional: Make it bold */
+            position: absolute;
+            left: 0;
+        }
+
+
+
+
+
+
+      

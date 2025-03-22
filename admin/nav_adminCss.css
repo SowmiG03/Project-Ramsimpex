@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+.navbar-brand  {
+    font-family: 'Lilita One', cursive;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform:capitalize;
+        word-spacing: -1px;
+    }
+    .glow{
+        font-size: 40px;
+        color: #6b0ea5;
+        text-align: center;
+        animation: glow 2s ease-in-out infinite alternate; 
+}
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6b0ea5, 0 0 40px #6b0ea580, 0 0 50px #6b0ea580, 0 0 60px #6b0ea5, 0 0 70px #6b0ea5;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #6b0ea580, 0 0 40px #6b0ea580, 0 0 50px #6b0ea580, #6b0ea580 #6b0ea5, 0 0 70px #6b0ea5, 0 0 80px #6b0ea5;
+    }
+  }
+
+/* icon space */
+.fa{
+    margin-right: 5px;
+}
+
+    .navbar .nav-link.active {
+      color: #6b0ea5!important;
+  }
+  
+
+  .navbar-collapse .nav-item a{
+    color:#6b0ea580 !important;
+    font-size:20px;
+    font-weight: bold;
+  }
+  .navbar-collapse .nav-item a:hover{
+    color: #6b0ea5!important;
+    font-weight: bold;
+    border-bottom: 3px solid #6b0ea5!important;
+
+  }
+  
+
+  /* Hide the cross icon by default */
+.cross-icon {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    display: none;
+  }
+  
+  /* Hide hamburger icon and show cross icon when expanded */
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    display: none;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .cross-icon {
+    display: inline-block;
+  }
+  
