@@ -16,7 +16,7 @@ function displayProducts() {
                     <img src="admin/<?php echo $row['product_photo']; ?>" class="img-fluid" alt="<?php echo $row['product_name']; ?>">
                     <figcaption class="mt-2 text-dark bg-white">
                         <!-- Link to the product details page with the product name or ID as a parameter -->
-                        <a href="subproducts.php?product_name=<?php echo urlencode($row['product_name']); ?>" class="product-link"><?php echo $row['product_name']; ?></a>
+                        <a href="subproducts.php?product_id=<?php echo urlencode($row['product_id']); ?>" class="product-link"><?php echo $row['product_name']; ?></a>
                     </figcaption>
                 </div>
             </figure>
@@ -50,7 +50,7 @@ function displayProductsIndex() {
                                 <img src="admin/<?php echo $row['product_photo']; ?>" class="img-fluid" alt="<?php echo $row['product_name']; ?>">
                             </div>
                             <div class="flip-card-back">
-                            <a href="subproducts.php?product_name=<?php echo urlencode($row['product_name']); ?>"><?php echo $row['product_name']; ?></a>
+                            <a href="subproducts.php?product_id=<?php echo urlencode($row['product_id']); ?>"><?php echo $row['product_name']; ?></a>
                             </div>
                         </div>
                     </div>

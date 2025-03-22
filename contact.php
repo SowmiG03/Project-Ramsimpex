@@ -17,7 +17,7 @@ $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="icon" href="images/logo1.jpeg" sizes="512x512" type="image/png">
+    <link rel="icon" href="images/logo.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
@@ -119,7 +119,6 @@ $alert_class = ($message_type == 'success') ? 'alert-success' : 'alert-danger';
             border: 1px solid #6b0ea5 !important;
             box-shadow: 0 0 5px #6b0ea5 !important;
         }
-
 
 
     </style>
@@ -249,18 +248,18 @@ foreach ($details as $row) {
         
         <div class="h6 text-uppercase text-center">Fill out the form and we'll be in touch soon!</div>
         <div class="h2 text-uppercase text-center">Ready to request a quote?</div>
-    <form method="post" action="contact_insert.php" class="row g-3 p-5">
+    <form method="post" action="contact_insert.php" class="row g-3 p-5" onsubmit="return validateForm()">
   <div class="col-md-6">
   <div class="input-group ">
-    <input type="text" class="form-control" id="inputPassword4" name="name" placeholder="Name*">
+    <input type="text" class="form-control" id="name" name="name" placeholder="Name*">
     </div>   </div>
   <div class="col-md-6">
   <div class="input-group">
-    <input type="email" class="form-control" id="inputPassword4" name="email" placeholder="Email*">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email*">
     </div>   </div>
   <div class="col-md-6">
   <div class="input-group ">
-    <input type="tel" class="form-control" id="inputPassword4" name="phone_number" placeholder="Phone Number*">
+    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Phone Number*">
     </div>   </div>
   <div class="col-md-6">
   <div class="input-group">
@@ -329,6 +328,50 @@ foreach ($details as $row) {
       })
       .catch(error => console.error("Error fetching countries:", error));
   });
+
+  function validateForm() {
+    // Get form elements
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone_number").value;
+    var country = document.getElementById("countrySelect").value;
+    var message = document.getElementsByName("message")[0].value;
+
+    // Validate Name (must not be empty)
+    if (name == "") {
+      alert("Please enter your name.");
+      return false;
+    }
+
+    // Validate Email with regular expression using preg_match equivalent in JS
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (email == "" || !emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    // Validate Phone Number (must be numbers only, and not empty)
+    var phonePattern = /^[0-9]{10}$/; // Assuming a 10-digit phone number format
+    if (phone == "" || !phonePattern.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return false;
+    }
+
+    // Validate Country (must be selected)
+    if (country == "") {
+      alert("Please select your country.");
+      return false;
+    }
+
+    // Validate Message (must not be empty)
+    if (message == "") {
+      alert("Please enter your message.");
+      return false;
+    }
+
+    return true; // Allow form submission if all fields are valid
+  }
+
 
 </script>
 

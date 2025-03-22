@@ -3,13 +3,13 @@
 include "admin/database.php";
 
 // Check if a product name is passed in the URL
-if (isset($_GET['product_name'])) {
-    $product_name = $_GET['product_name'];
+if (isset($_GET['product_id'])) {
+    $product_id = $_GET['product_id'];
 
     // SQL query to fetch the main product details
-    $product_sql = "SELECT * FROM products WHERE product_name = ?";
+    $product_sql = "SELECT * FROM products WHERE product_id = ?";
     $stmt = $mysqli->prepare($product_sql);
-    $stmt->bind_param("s", $product_name);
+    $stmt->bind_param("s", $product_id);
     $stmt->execute();
     $product_result = $stmt->get_result();
     
@@ -36,6 +36,9 @@ if (isset($_GET['product_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $product['product_name']; ?> - Product Details</title>
+     <!-- browser logo -->
+     <link rel="icon" href="images/logo1.jpeg" sizes="512x512" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Add Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">

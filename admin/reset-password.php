@@ -34,22 +34,19 @@ if (strtotime($user["reset_expires"]) <= time()) {
     <title>Reset Password</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav_adminCss.css?v=2.0">
+      <!-- Include Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
             background-image: url('images/al3.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat:no-repeat;
             height: 100vh;
             font-family: "Sitka Text Semibold";
         }
 
-        .navbar-custom {
-            background-color: #6a0dad;
-        }
-
-        .navbar-custom a {
-            color: white;
-        }
 
         .card {
             border-radius: 10px;
@@ -127,7 +124,7 @@ if (strtotime($user["reset_expires"]) <= time()) {
     </style>
 </head>
 <body>
-    <?php include "../navbar.php"; ?>
+    <?php include "nav_admin.php"; ?>
 
     <div>
         <form id="resetPasswordForm" method="post" action="process-reset-password.php">

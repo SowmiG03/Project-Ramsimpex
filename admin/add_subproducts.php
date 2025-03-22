@@ -145,13 +145,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="mb-3">
                 <label for="keywords" class="form-label">Keywords:</label>
-                <textarea id="keywords" name="keywords" class="form-control" rows="4"></textarea>
+                <textarea id="keywords" name="keywords" class="form-control" rows="4" required ></textarea>
             </div>
             <div class="submit-container">
             <button type="submit" class="btn btn-purple w-100">Add Subproduct</button>
             </div>
         </form>
     </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const nameInput = document.getElementById('subproduct_name');
+    const keywordsInput = document.getElementById('keywords');
+
+    // Validate subproduct name
+    nameInput.addEventListener('input', function () {
+        const namePattern = /^(?!.*\d{2,})[a-zA-Z\s\d]{1,30}$/;
+        if (!namePattern.test(this.value)) {
+            this.setCustomValidity("Invalid subproduct name: No continuous digits or special characters allowed.");
+        } else {
+            this.setCustomValidity("");
+        }
+    });
+
+    // Validate keywords
+    keywordsInput.addEventListener('input', function () {
+        const keywordsPattern = /^([a-zA-Z\s]+(,[a-zA-Z\s]+)*)?$/;
+        if (!keywordsPattern.test(this.value)) {
+            this.setCustomValidity("Invalid keywords: Use letters only, separated by commas.");
+        } else {
+            this.setCustomValidity("");
+        }
+    });
+});
+</script>
+
 
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

@@ -10,6 +10,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_name = $_POST['product_name'];
     $keywords = $_POST['keywords'];
 
+    // Validation patterns
+    $name_pattern = '/^(?!.*\d{2,})[A-Za-z\s]+$/';
+    $keywords_pattern = '/^(?!.*\d{2,})[A-Za-z\s,]+$/';
+
+    // Validate product name
+    if (!preg_match($name_pattern, $product_name)) {
+        echo "<script>alert('Invalid product name. Only letters and spaces allowed, no continuous numbers.');</script>";
+        exit;
+    }
+
+    // Validate keywords
+    if (!empty($keywords) && !preg_match($keywords_pattern, $keywords)) {
+        echo "<script>alert('Invalid keywords. Only letters, spaces, and commas allowed, no continuous numbers.');</script>";
+        exit;
+    }
+
     // Handle file upload
     $upload_dir = "uploads/products/";
     if (!is_dir($upload_dir)) {
@@ -125,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="mb-3">
                     <label for="keywords" class="form-label">Keywords:</label>
-                    <textarea class="form-control" id="keywords" name="keywords" rows="4"></textarea>
+                    <textarea class="form-control" id="keywords" name="keywords" rows="4" required ></textarea>
                 </div>
                 <div class="submit-container">
                 <button type="submit" class="btn btn-purple w-100">Add Product</button>

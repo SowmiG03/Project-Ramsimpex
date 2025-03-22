@@ -48,7 +48,7 @@ if (isset($_GET['message']) && $_GET['message'] === 'logout_success') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     
-    <link rel="icon" href="../images/logo1.jpeg" sizes="512x512" type="image/png">
+    <link rel="icon" href="../images/logo.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

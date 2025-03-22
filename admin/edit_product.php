@@ -80,10 +80,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #4b0082;
+            font-family: Cascadia Code !important;
+        
+        }
+        .container {
+            background-color:rgb(233, 235, 238);        
+                padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 50px auto;
+            max-width: 500px;
+
+        }
+        h2 {
+            color: #6a0dad;
+            text-align: center;
+        }
+        label {
+            color: #6b0ea5; /* Purple */
+              }
+
+        .btn-primary {
+            background-color: #6b0ea5;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            width: 50%;
+            padding: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #4b0082;
+            border-color: #4b0082;
+        }
+
+
+        .form-control {
+            border-radius: 30px;
+        }
+
+        .form-control:focus {
+            border: 1px solid #6b0ea5;
+            box-shadow: 0 0 5px #6b0ea5;
+        }
+
+        .submit-container {
+            display: flex;
+            justify-content: center !important;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="text-center">Edit Product</h2>
+    <div class="form-container"> 
+        <h2 class="text-center">EDIT PRODUCT</h2>
         <form action="edit_product.php?product_id=<?php echo $row['product_id']; ?>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="product_name" class="form-label">Product Name:</label>
@@ -93,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <label for="product_photo" class="form-label">Product Photo:</label>
                 <input type="file" class="form-control" id="product_photo" name="product_photo" accept=".png, .jpeg, .jpg">
-                <img src="<?php echo $row['product_photo']; ?>" alt="Current Product Photo" width="100" class="mt-2">
+                <img src="<?php echo $row['product_photo']; ?>" alt="Current Product Photo" width="100" class="mt-2 border rounded">
             </div>
 
             <div class="mb-3">
@@ -106,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </form>
     </div>
-    
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

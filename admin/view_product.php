@@ -16,6 +16,61 @@ $result = mysqli_query($mysqli, $query);
     <title>View Products</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #6f42c1;
+        }
+        .table {
+            background-color: #fff;
+        }
+        .table th {
+            background-color: #6f42c1;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #6f42c1 !important;
+            border-color: #6f42c1 !important;
+        }
+        .btn-primary:hover {
+            background-color: #5a32a3;
+        }
+        .btn-danger {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            color: #f8f9fa;
+        }
+
+        .btn-danger:hover {
+            background-color:rgb(243, 241, 247);
+            color: #6f42c1;
+            border-color: #6f42c1;
+                   }
+
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+
+        .table tbody tr:nth-child(odd) {
+            background-color:rgb(237, 236, 239);
+        }
+    </style>
 </head>
 <body>
 <div class="container mt-5">
@@ -37,13 +92,10 @@ $result = mysqli_query($mysqli, $query);
                 <td><?php echo $row['keywords']; ?></td>
                 <td>
                     <?php if ($row['status'] == 'enabled') { ?>
-                        <!-- Disable Button for enabled products -->
                         <a href="disable_product.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-danger btn-sm">Disable</a>
                     <?php } else { ?>
-                        <!-- Enable Button for disabled products -->
                         <a href="disable_product.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-success btn-sm">Enable</a>
                     <?php } ?>
-                    <!-- Edit Button -->
                     <a href="edit_product.php?product_id=<?php echo $row['product_id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                 </td>
             </tr>

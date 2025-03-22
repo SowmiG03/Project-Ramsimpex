@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rams Impex</title>
-    <link rel="icon" href="images/logo1.jpeg" sizes="512x512" type="image/png">
+    <link rel="icon" href="images/logo.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -130,31 +130,81 @@
         transform: translateX(-100%);
     }
 }
+/* .area-highlight:hover {
+    outline: 3px solid rgba(255, 0, 0, 0.5); 
+    cursor: pointer;
+} */
+a.btn-edge {
+      background-color: #6b0ea580 !important;
+      color: white;
+      width: 120px;
+      text-align: center;
+      padding:10px;
+      font-size:20px;
+      border-radius:none;
+      text-decoration: none;
+  }
+  a.btn-edge:hover {
+    background-color: #6b0ea5 !important;
+    color: #fff !important;
+}
+
+  
+    .btn-custom {
+      background-color: #6b0ea580;
+      color: #fff; /* Ensures text is readable */
+      border: none; /* Removes border */
+      font-size: medium;
+      
+  }
+
+  .btn-custom:hover {
+      background-color: #6b0ea5; /* Darker shade for hover effect */
+      color: #fff;
+  }
+
+
+
     </style>
 </head>    
    <?php include("navbar.php") ?>
     
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="10000">
-                <img src="images/slide1.jpeg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <img src="images/slide2.jpeg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="images/slide3.jpeg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+        <img src="images/slide1.png" class="d-block w-100" alt="Slide 1" usemap="#image_map1">
+        <map name="image_map1">
+    <area  alt="Cushions" class="area-highlight" title="Cushions" href="subproducts.php?product_id=9" coords="285,156,572,55" shape="rect">
+    <area  alt="Table Mats"  class="area-highlight" title="Table Mats" href="subproducts.php?product_id=10" coords="707,398,165" shape="circle">
+</map>
+          
+        </div>
+
+        <div class="carousel-item" data-bs-interval="10000">
+            <img src="images/slide2.png" class="d-block w-100" alt="Slide 2" usemap="#image_map2">
+            <map name="image_map2">
+                <area alt="curtains" class="area-highlight" title="curtains" href="subproducts.php?product_id=7" coords="58,7,361,407"  shape="rect">
+                <area alt="curtains"  class="area-highlight" title="curtains" href="subproducts.php?product_id=7" coords="508,41,940,345" shape="rect">
+            </map>
+        </div>
+      
+        <div class="carousel-item">
+            <img src="images/slide3.png" class="d-block w-100" alt="Slide 3" usemap="#image_map3">
+            <map name="image_map3">
+                <area alt="Towel" title="Towel" class="area-highlight" href="subproducts.php?product_id=2" coords="22,305,448,687" shape="rect">
+                <area alt="Towel" title="Towel" href="subproducts.php?product_id=2" coords="739,372,862,502" shape="rect">
+            </map>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 
 
@@ -179,7 +229,11 @@
 
 
         <div class="row mt-3">
-           <?php display_video(); ?>
+        <div class="col-12 col-md-6 mx-3 wow animate__animated animate__backInLeft">
+        <div class="iframe-container">
+        <script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/collection/7bHlQ?logo=1&info=1&fs=1&vr=0&zoom=1&thumbs=1" data-width="100%" data-height="640px"></script>
+    </div>
+        </div>
         
         
             <div class="col-12 col-md-5 m-3 pt-3 wow animate__animated animate__backInRight">
@@ -223,6 +277,22 @@
                
           </div>
        <?php  include("footer.php")?>
+
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
+       <script>
+        window.onload = function() {
+            imageMapResize();
+        };
+
+        window.addEventListener("beforeunload", function() {
+        // Make a request to the server to destroy the session
+        fetch("destroySession.php")
+            .then(response => response.text()) // Optional: you can log the server's response
+            .then(data => console.log("Session destroyed"))
+            .catch(error => console.error("Error:", error));
+    });
+    </script>
         
 <!-- jQuery and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Us</title>
     <!-- browser logo -->
-    <link rel="icon" href="images/logo1.jpeg" sizes="512x512" type="image/png">
+    <link rel="icon" href="images/logo.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- wow.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
@@ -198,7 +198,7 @@ document.getElementById('searchInput').addEventListener('input', function () {
                                         <div class="portfolio-item">
                                             <img src="admin/${product.product_photo}" class="img-fluid" alt="${product.product_name}">
                                             <figcaption class="mt-2 text-dark bg-white">
-                                                <a href="subproducts.php?product_name=${encodeURIComponent(product.product_name)}" class="product-link">${product.product_name}</a>
+                                                <a href="subproducts.php?product_id=${product.product_id}" class="product-link">${product.product_name}</a>
                                             </figcaption>
                                         </div>
                                     </figure>

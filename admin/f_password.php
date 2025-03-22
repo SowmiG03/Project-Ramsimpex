@@ -90,6 +90,31 @@
         button:hover {
             background-color: #5c089b; /* Darker purple on hover */
         }
+
+        .alert {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.6s;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
     </style>
 </head>
 <body>
@@ -98,17 +123,17 @@
 
 <?php include "nav_admin.php"?>
     <!-- Alert Message -->
-    <?php if (isset($_GET['message']) && $_GET['message'] === 'sent'): ?>
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            Message sent! Please check your inbox.
-        </div>
-    <?php elseif (isset($_GET['message']) && $_GET['message'] === 'error'): ?>
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            Failed to send message. Please try again.
-        </div>
-    <?php endif; ?>
+    <?php if (isset($_GET['message'])): ?>
+    <div class="alert" style="background-color: <?php echo $_GET['message'] === 'sent' ? '#4CAF50' : '#f44336'; ?>;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php 
+            echo $_GET['message'] === 'sent' 
+                ? 'Message sent! Please check your inbox.' 
+                : 'Failed to send message. Please try again.'; 
+        ?>
+    </div>
+<?php endif; ?>
+
 
    
     <div>

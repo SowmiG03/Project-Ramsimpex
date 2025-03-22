@@ -19,9 +19,6 @@
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                     <!-- Show when logged in -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-person"></i> Profile</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a>
                     </li>
                 <?php else: ?>
